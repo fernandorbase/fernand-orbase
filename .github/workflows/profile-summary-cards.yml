@@ -1,18 +1,17 @@
 name: GitHub-Profile-Summary-Cards
 
 on:
-  schedule: # Indented 2 spaces
-    - cron: "0 0 * * *" # Indented 4 spaces
-  workflow_dispatch: # Indented 2 spaces
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
 
-jobs: # <-- Make sure this keyword exists and is completely flush left!
-  build: # Indented 2 spaces under 'jobs:'
-    runs-on: ubuntu-latest # Indented 4 spaces under 'build:'
-    allow-empty-commits: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: vn7n24fzkq/github-profile-summary-cards@release
         env:
-          GITHUB_TOKEN: ${{ secrets.SUMMARY_CARD_TOKEN }} # Assuming you named your secret PAT
+          GITHUB_TOKEN: ${{ secrets.SUMMARY_CARD_TOKEN }}
         with:
           USERNAME: ${{ github.repository_owner }}
